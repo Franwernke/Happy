@@ -1,35 +1,24 @@
 import { Router } from 'express';
-import { getRepository } from 'typeorm';
-import Orphanage from './models/Orphanage';
+import multer from 'multer';
+
+import uploadConfig from './config/upload';
+import OrphanagesController from './controllers/OrphanagesController';
 
 const routes = Router();
+const upload = multer(uploadConfig);
+
+// MVC
+// Model
+// View
+// Controller
+
+// Métodos padrão de um controller
+// index, show, create, update, delete
 
 // Rota: Insere novos orfanatos
-routes.post('/orphanages', async (req, res) => {
-    const { 
-        name,
-        latitude,
-        longitude,
-        about,
-        instructions,
-        opening_hours,
-        open_on_weekends  
-    } = req.body;
+routes.get('/orphanages', OrphanagesController.index);
+routes.get('/orphanages/:id', OrphanagesController.show);
+routes.post('/orphanages', upload.array('images'), OrphanagesController.create);
 
-    const orphanageRepository = getRepository(Orphanage);
-    const orphanage = orphanageRepository.create({
-        name,
-        latitude,
-        longitude,
-        about,
-        instructions,
-        opening_hours,
-        open_on_weekends
-    })
-
-    await orphanageRepository.save(orphanage);
-
-    return res.status(201).json(orphanage);
-});
 
 export default routes;

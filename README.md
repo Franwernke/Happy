@@ -3,6 +3,20 @@ Happy is a website which can be used to find orphanages, visit them or advertise
 
 This project is based on Next Level Week third edition walkthrough project. Many assets here belong to RocketSeat.
 
+## Building
+
+### On Back-end directory
+1. `yarn install`
+2. `yarn dev`
+
+(Opens at gate 3333)
+
+### On Front-end directory
+1. `yarn install`
+2. `yarn start`
+
+(Opens at gate 3000)
+
 ## Technologies
 
 ### Front-End

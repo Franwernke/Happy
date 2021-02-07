@@ -10,9 +10,11 @@ This project is based on Next Level Week third edition walkthrough project. Many
 - React-Leaflet
 
 ### Back-End
+- Node.js
 - SQLite
 - Express
 - TypeOrm
+- Axios
 
 ### Language
 - JavaScript (Typescript)
